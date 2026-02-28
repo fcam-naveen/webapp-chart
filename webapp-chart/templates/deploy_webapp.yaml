@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-app
+  labels:
+    app: web-app
+spec:
+  replicas: {{ .Values.webapp.replicas }}
+  selector:
+    matchLabels:
+      app: web-app
+  template:
+    metadata:
+      labels:
+        app: web-app
+    spec:
+      imagePullSecrets:
+        - name: dockerhub-secret
+      containers:
+        - name: web-app
+          image: "{{ .Values.webapp.image }}:{{ .Values.webapp.tag }}"
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8000
+          env: 
+            - name: DB_HOST
+              value: "postgres-postgres-1.postgres-headless"
+            - name: DB_PORT
+              value: "5432"
+            - name: DB_NAME
+              value: "mydb"
+            - name: DB_USER
+              value: "admin"
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-secret
+                  key: password    
+

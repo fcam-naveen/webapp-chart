@@ -1,0 +1,16 @@
+# Default values for webapp-chart.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+# This will set the replicaset count more information can be found here: https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/
+
+webapp:
+  image: cnaveenss/webapp_test
+  tag: 3.1
+  replicas: 2
+
+postgres:
+  image: postgres
+  tag: 15
+  replicas: 2
+  password: P0stgres
