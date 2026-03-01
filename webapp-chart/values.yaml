@@ -14,3 +14,4 @@ postgres:
   tag: 15
   replicas: 2
   password: P0stgres
+  host: postgres-headless
