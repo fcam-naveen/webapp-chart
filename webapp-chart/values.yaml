@@ -12,6 +12,6 @@ webapp:
 postgres:
   image: postgres
   tag: 15
-  replicas: 2
+  replicas: 1
   password: P0stgres
   host: postgres-headless
