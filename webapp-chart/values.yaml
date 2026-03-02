@@ -6,7 +6,7 @@
 
 webapp:
   image: cnaveenss/webapp_test
-  tag: 3.2
+  tag: 3.3
   replicas: 2
 
 postgres:
