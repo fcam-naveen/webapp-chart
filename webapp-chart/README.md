@@ -4,6 +4,8 @@ This Helm chart deploys a web application + PostgreSQL database onto Kubernetes,
 
 **What ArgoCD does:** It watches your Git repo. Whenever you push a change, it automatically applies that change to your cluster — no manual `kubectl apply` needed.
 
+**All commands below should be run from the `webapp-chart` directory.**
+
 ---
 
 ## Table of Contents
